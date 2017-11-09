@@ -5,7 +5,7 @@
   "dependencies": {
     "eslint-config-airbnb": "^16.1.0",
     "material-ui": "^1.0.0-beta.20",
-    "normalize.css": "^7.0.0",
+    "normaize.css": "^7.0.0",
     "prop-types": "^15.6.0",
     "react": "^16.1.0",
     "react-dom": "^16.1.0",
