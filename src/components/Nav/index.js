@@ -32,6 +32,8 @@ const Nav = ({ classes, items }) => (
                 href={url}
                 component="a"
                 dense
+                disableFocusRipple
+                disableRipple
             >
                 {label}
             </Button>
