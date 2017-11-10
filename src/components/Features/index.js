@@ -6,6 +6,7 @@ import { Grid, Button, Typography, withStyles } from 'material-ui';
 const styles = {
     root: {
         // TODO: Use variables
+        width: 'auto',
         padding: '20px 80px',
         borderRadius: '10px',
         backgroundColor: 'white',
@@ -23,6 +24,16 @@ const styles = {
         paddingTop: '40px',
         textAlign: 'center',
     },
+    '@media (max-width: 1220px)': {
+        root: {
+            padding: '20px 50px',
+        },
+    },
+    '@media (max-width: 1140px)': {
+        root: {
+            margin: '0 20px',
+        },
+    },
 };
 
 const Features = ({ items, classes }) => (
@@ -34,7 +45,6 @@ const Features = ({ items, classes }) => (
     >
         {R.map(item => (
             <Grid
-                xs={12 / items.length}
                 key={item.id}
                 className={classes.featureItem}
             >

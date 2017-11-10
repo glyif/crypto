@@ -40,7 +40,8 @@ const styles = {
         // TODO: use variables
         backgroundColor: '#4A5AB5',
         backgroundImage: `url(${dot})`,
-        borderRadius: '10px 10px 0 0',
+        boxShadow: '0px 10px 14px 0px rgba(79, 90, 166, 0.35)',
+        borderRadius: 10,
     },
     tagLineWrap: {
         display: 'flex',
@@ -55,6 +56,16 @@ const styles = {
         top: '-139px',
         width: '1180px',
         height: '300px',
+    },
+    '@media (max-width: 1220px)': {
+        featuresWrap: {
+            width: 1040,
+        },
+    },
+    '@media (max-width: 1140px)': {
+        featuresWrap: {
+            width: '100%',
+        },
     },
 };
 

@@ -4,10 +4,23 @@ import classNames from 'classnames';
 import { Grid, withStyles } from 'material-ui';
 
 const styles = {
+    root: {
+        width: 'auto',
+    },
     inner: {
         // TODO: use variable
         width: '1080px',
         position: 'relative',
+    },
+    // TODO: use variable
+    '@media (max-width: 1140px)': {
+        root: {
+            margin: '20px 20px 0 20px',
+        },
+        inner: {
+            width: '100%',
+            margin: '0 !important',
+        },
     },
 };
 
@@ -17,7 +30,7 @@ const Section = ({ children, className, innerClassName, outerContent, classes })
         direction="column"
         alignItems="center"
         spacing={0}
-        className={className}
+        className={classNames(classes.root, className)}
     >
         <div className={classNames(classes.inner, innerClassName)}>
             {children}

@@ -153,6 +153,11 @@ const styles = theme => ({
     headline: {
         paddingBottom: `${theme.spacing.unit}px`,
     },
+    '@media (max-width: 1220px)': {
+        root: {
+            right: 40,
+        },
+    },
 });
 
 const BigPhones = ({ classes }) => (
