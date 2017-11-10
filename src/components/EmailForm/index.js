@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Grid, Input, Button, withStyles } from 'material-ui';
+import { Grid, TextField, Button, withStyles } from 'material-ui';
+import isEmail from '../../utils/isEmail';
 
 const styles = theme => ({
     container: {
@@ -32,32 +33,84 @@ const styles = theme => ({
         backgroundColor: '#68c0f8',
         borderRadius: 8,
     },
+    error: {
+        color: theme.palette.common.white,
+        opacity: 0.5,
+    },
 });
 
-const EmailForm = ({ classes }) => (
-    <Grid
-        container
-        justify="center"
-    >
-        <Grid item>
-            <Input
-                placeholder="Enter your email"
-                classes={{
-                    root: classes.inputRoot,
-                    input: classes.input,
-                }}
-            />
-        </Grid>
-        <Grid item>
-            <Button
-                color="contrast"
-                className={classes.button}
+class EmailForm extends Component {
+    state = {
+        email: '',
+        invalid: null,
+    };
+
+    handleSubmit = (e) => {
+        e.preventDefault();
+        const { email } = this.state;
+
+        if (!isEmail(email)) {
+            this.setState({
+                invalid: true,
+            });
+
+            return;
+        }
+
+        alert('We\'ll get in touch soon. Thanks!'); // eslint-disable-line no-alert
+    }
+
+    handleChange = (e) => {
+        const { value } = e.target;
+        const { invalid } = this.state;
+        const nextInvalid = isEmail(value) ? false : invalid;
+
+        this.setState({
+            email: value,
+            invalid: nextInvalid,
+        });
+    }
+
+    render() {
+        const { classes } = this.props;
+        const { email, invalid } = this.state;
+
+        return (
+            <Grid
+                container
+                justify="center"
+                component="form"
+                onSubmit={this.handleSubmit}
             >
-                Get Early Access
-            </Button>
-        </Grid>
-    </Grid>
-);
+                <Grid item>
+                    <TextField
+                        placeholder="Enter your email"
+                        InputProps={{
+                            classes: {
+                                root: classes.inputRoot,
+                                input: classes.input,
+                            },
+                        }}
+                        value={email}
+                        onChange={this.handleChange}
+                        helperText={invalid &&
+                        <span className={classes.error}>Please enter a valid email address.</span>
+                        }
+                    />
+                </Grid>
+                <Grid item>
+                    <Button
+                        color="contrast"
+                        className={classes.button}
+                        type="submit"
+                    >
+                        Get Early Access
+                    </Button>
+                </Grid>
+            </Grid>
+        );
+    }
+}
 
 EmailForm.propTypes = {
     classes: PropTypes.object.isRequired,
