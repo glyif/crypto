@@ -4,16 +4,22 @@ import { withStyles } from 'material-ui';
 
 const styles = {
     root: {
-        backgroundColor: '#eee',
-        fontWeight: 300,
+        // TODO: Use variables
+        backgroundColor: '#eef2f5',
+        fontWeight: 400,
         fontSize: '15px',
         lineHeight: '25px',
+        color: '#49555f',
         textRendering: 'optimizeLegibility',
         webkitFontSmoothing: 'antialiased',
-    }
+    },
+    container: {
+        maxWidth: '1280px',
+        margin: '0 auto',
+    },
 };
 
-const App = ({ children, classes }) => (
+const Layout = ({ children, classes }) => (
     <div className={classes.root}>
         <div className={classes.container}>
             {children}
@@ -21,9 +27,9 @@ const App = ({ children, classes }) => (
     </div>
 );
 
-App.propTypes = {
+Layout.propTypes = {
     children: PropTypes.node.isRequired,
     classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(App);
+export default withStyles(styles)(Layout);

@@ -1,17 +1,14 @@
 import React from 'react';
 import Layout from '../components/Layout';
-import Section from '../components/Section';
 import Sections from '../components/Sections';
-
+import IntroSection from '../components/IntroSection';
 
 const App = () => (
     <Layout>
         <Sections>
-            <Section/>
+            <IntroSection />
         </Sections>
     </Layout>
 );
-
-
 
 export default App;
