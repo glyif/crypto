@@ -10,9 +10,12 @@ const styles = theme => ({
     },
     headline: {
         paddingBottom: `${theme.spacing.unit}px`,
+        color: theme.palette.common.white,
     },
     subheading: {
         marginBottom: '20px',
+        color: theme.palette.common.white,
+        opacity: 0.6,
     },
 });
 
@@ -31,7 +34,7 @@ const TagLine = ({ classes }) => (
         >
             Status, the Ethereum discovery tool.
         </Typography>
-        <EmailForm/>
+        <EmailForm />
     </div>
 );
 

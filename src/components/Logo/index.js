@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Grid, Typography, withStyles } from 'material-ui';
 import logo from './logo.png';
 
-const styles = {
+const styles = theme => ({
     root: {
         display: 'flex',
     },
@@ -20,8 +20,13 @@ const styles = {
     },
     brand: {
         lineHeight: 'inherit',
+        color: theme.palette.common.white,
     },
-};
+    tagline: {
+        color: theme.palette.common.white,
+        opacity: 0.5,
+    },
+});
 
 const Logo = ({ classes }) => (
     <Grid
@@ -40,7 +45,9 @@ const Logo = ({ classes }) => (
             >
                 Status
             </Typography>
-            <Typography className={classes.tagline}>
+            <Typography
+                className={classes.tagline}
+            >
                 A Mobile Ethereum OS
             </Typography>
         </div>
