@@ -9,6 +9,7 @@ import Features from '../Features';
 import sendIcon from './send_icon.png';
 import browseIcon from './browse_icon.png';
 import buyIcon from './buy_icon.png';
+import dot from './dot.svg'
 
 const FEATURES = [
     {
@@ -38,6 +39,7 @@ const styles = {
         paddingTop: '40px',
         // TODO: use variables
         backgroundColor: '#4A5AB5',
+        backgroundImage: `url(${dot})`,
         borderRadius: '10px 10px 0 0',
     },
     tagLineWrap: {
