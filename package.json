@@ -9,9 +9,10 @@
     "react": "^16.1.0",
     "react-dom": "^16.1.0",
     "react-motion": "^0.5.2",
+    "react-reveal": "^0.7.3",
     "react-scripts": "1.0.17",
     "classnames": "^2.2.5",
-    "ramda": "^0.25.0",
+    "ramda": "^0.25.0"
   },
   "scripts": {
     "start": "react-scripts start",
