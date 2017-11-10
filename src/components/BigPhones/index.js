@@ -1,10 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { CSSTransitionGroup } from 'react-transition-group';
 import classNames from 'classnames';
 import { withStyles } from 'material-ui';
 import Parallax from '../Parallax';
 import iosScreen from './IOS_Chat4.png';
 import androidScreen from './Android_Chats.png';
+import './index.css';
 
 const styles = theme => ({
     root: {
@@ -34,8 +36,6 @@ const styles = theme => ({
     },
     phone: {
         position: 'absolute',
-        // opacity: '0',
-        // transform: 'translate3d(0, 40px, 0)',
         transition: 'transform .6s ease, opacity .3s ease',
     },
     iphone: {
@@ -153,41 +153,51 @@ const styles = theme => ({
     headline: {
         paddingBottom: `${theme.spacing.unit}px`,
     },
-    '@media (max-width: 1220px)': {
-        root: {
-            right: 40,
-        },
-    },
 });
 
 const BigPhones = ({ classes }) => (
     <div className={classes.root}>
-        <Parallax
-            speed={0.15}
-            max={100}
+        <CSSTransitionGroup
+            transitionName="phones"
+            transitionEnterTimeout={600}
+            transitionLeaveTimeout={600}
+            transitionAppear
         >
-            <div className={classNames(classes.phoneWrap, classes.iphoneWrap)}>
-                <div className={classNames(classes.phone, classes.iphone)}>
-                    <div className={classes.iphoneDot} />
-                    <div className={classes.iphoneLine} />
-                    <div className={classes.iphoneScreen} />
-                    <div className={classes.iphoneButton} />
-                </div>
+            <div>
+                <Parallax
+                    speed={0.15}
+                    max={100}
+                >
+                    <div className={classNames(classes.phoneWrap, classes.iphoneWrap)}>
+                        <div
+                            className={classNames(classes.phone, classes.iphone)}
+                        >
+                            <div className={classes.iphoneDot} />
+                            <div className={classes.iphoneLine} />
+                            <div className={classes.iphoneScreen} />
+                            <div className={classes.iphoneButton} />
+                        </div>
+                    </div>
+                </Parallax>
             </div>
-        </Parallax>
-        <Parallax
-            speed={0.25}
-            max={150}
-        >
-            <div className={classNames(classes.phoneWrap, classes.androidWrap)}>
-                <div className={classNames(classes.phone, classes.android)}>
-                    <div className={classes.androidDot} />
-                    <div className={classes.androidLine} />
-                    <div className={classes.androidScreen} />
-                    <div className={classes.androidButton} />
-                </div>
+            <div>
+                <Parallax
+                    speed={0.25}
+                    max={150}
+                >
+                    <div className={classNames(classes.phoneWrap, classes.androidWrap)}>
+                        <div
+                            className={classNames(classes.phone, classes.android)}
+                        >
+                            <div className={classes.androidDot} />
+                            <div className={classes.androidLine} />
+                            <div className={classes.androidScreen} />
+                            <div className={classes.androidButton} />
+                        </div>
+                    </div>
+                </Parallax>
             </div>
-        </Parallax>
+        </CSSTransitionGroup>
     </div>
 );
 

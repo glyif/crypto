@@ -1,0 +1,15 @@
+.phones-appear > div > div {
+    opacity: 0;
+    transform: translate3d(0, 40px, 0);
+    transition: transform .6s ease, opacity .3s ease;
+    transition-delay: .3s;
+}
+
+.phones-appear + .phones-appear > div > div {
+    transition-delay: .4s;
+}
+
+.phones-appear-active > div > div {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+}
